@@ -1,0 +1,620 @@
+/* ------------ IMPORTED FONTS ------------ */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Montserrat:ital,wght@0,400;0,700;1,400&display=swap');
+
+/* ------------ CSS RESET ------------ */
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+/* ------------ ROOT VARIABLES ------------ */
+:root {
+    --text: #0D0D0D;
+    --body: #F2F2F2;
+    --content: #7ABFBF;
+    --background: rgba(122, 191, 191, .5);
+    --svg: #EB5428;
+}
+
+/* ------------ GLOBAL STYLES (SMALL/MOBILE) ------------ */
+html {
+	background-color: var(--background);
+}
+body {
+    min-width: 414px;
+	width: 80%;
+	background-color: var(--body);
+	margin: 0 auto 15px;
+	line-height: 1.5em;
+	color: var(--text);
+}
+header {
+	padding-top: 185px;
+}
+h1, h2, h3, nav a, nav span, menu li, #social li, footer {
+	font-family: 'Bebas Neue', sans-serif;
+	font-weight: 400;
+}
+h1 {
+	font-size: 40px;
+	text-align: center;
+	padding: 10px 0 20px;
+}
+p, dd, dt, li, nav, input {
+	font-family: Montserrat, sans-serif;
+	font-size: 16px;
+}
+p, dd, li, nav, input {
+	font-weight: 400;
+}
+dt {
+	font-weight: 700;
+}
+menu {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	list-style-type: none;
+	padding: 10px 20px 30px;
+}
+menu a {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	text-decoration: none;
+	color: var(--svg);
+	position: relative;
+}
+menu a:hover span {
+	background-color: var(--svg);
+	color: var(--body);
+}
+menu span {
+	position: absolute;
+	bottom: -20px;
+	padding: 0 2px;
+	text-align: center;
+	transition: background-color 0.5s, color 0.5s;
+}
+a[href="#recipe"] span {
+	width: 100px;
+}
+#about h2, nav h2, footer h2 {
+	display: none;
+}
+h2 {
+	font-size: 30px;
+	text-align: center;
+	padding-top: 10px;
+}
+#about img {
+	width: 100%;
+}
+#about p {
+	padding: 15px 10px;
+}
+#details dl {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	width: 275px;
+	padding: 10px 10px 5px;
+}
+#details dt {
+	padding-right: 20px;
+}
+#ingredients ul {
+	list-style-type: square;
+	padding: 10px 22px;
+}
+#ingredients li, #directions li {
+	padding-left: 10px;
+}
+#ingredients li {
+	padding-top: 10px;
+}
+ol {
+	list-style-type: decimal;
+	padding: 0 10px 10px 25px;
+}
+#directions li {
+	padding-top: 20px;
+}
+#side-dishes {
+	background-color: var(--content);
+	padding: 5px;
+}
+#side-dishes h2 {
+	padding-bottom: 10px;
+}
+.side-dish {
+	display: grid;
+	grid-template-columns: 1fr 3fr;
+	grid-template-areas: 'image a a' 'image b b' 'image c c';
+	padding: 25px 30px 0 6px;
+	margin: 0 auto;
+	column-gap: 20px;
+}
+.side-dish:hover {
+	background-color: #eba728;
+	cursor: pointer;
+}
+.side-dish h3 {
+	grid-area: a;
+}
+h3 {
+	font-size: 25px;
+}
+.side-dish p {
+	padding-top: 10px;
+	grid-area: b;
+}
+.side-dish dl {
+	grid-area: c;
+}
+.side-dish dt {
+	padding-bottom: 2px;
+}
+.side-dish dd {
+	margin-left: -5px;
+}
+.side-dish dd svg {
+	fill: var(--svg);
+}
+.side-dish:first-of-type svg:last-of-type, .side-dish:nth-of-type(3) svg:last-of-type, .side-dish:last-of-type svg:last-of-type {
+	fill: white;
+}
+.side-dish img {
+	width: 90px;
+	grid-area: image;
+}
+nav {
+    grid-area: nav;
+    min-width: 414px;
+	width: 80%;
+    background-color: #ffffff;
+    box-shadow: 0px 3px 3px #bbb;
+    position: fixed;
+    top: 0;
+    z-index:5;
+	padding: 10px 0 5px;
+}
+nav ul {
+    grid-area: hamberger;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+    overflow: hidden;
+    max-height: 0;
+}
+li a[id="logo"] {
+	display: none;
+}
+nav li img {
+    display: none;
+}
+nav li a {
+    display: block;
+    padding: 20px;
+    text-decoration: none;
+	color: var(--svg);
+	text-align: center;
+	transition: background-color 1s, color 1s;
+}
+nav li a:hover {
+	background-color: var(--svg);
+	color: var(--body);
+}
+nav label {
+    cursor: pointer;
+    display: inline-block;
+    user-select: none;
+    position: relative;
+    bottom: -5px;
+    left: 25px;
+	text-align: center;
+}
+nav span {
+    display: block;
+    position: relative;
+ }
+nav label svg {
+    display: block;
+}
+label span:before, label span:after {
+    content: '';
+    display: block;
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+nav input {
+    display: none;
+}
+nav input:checked ~ ul {
+    max-height: 550px;
+}
+nav h2 {
+    visibility: hidden;
+    height: 1px;
+    width: 1px;
+}
+nav a, nav span, menu li, #social li, footer {
+	font-size: 20px;
+}
+
+nav a[href="#home"] {
+	background-color: var(--svg);
+	position: absolute;
+	top: 0px;
+	width: 56%;
+	left: 22%;
+}
+a[href="#home"] svg {
+	width: 100%;
+	padding: 10px 0 3.25px;
+}
+nav li:last-of-type {
+	position: absolute;
+	top: 0;
+	right: 0;
+	text-align: center;
+	padding: 10px 12px 0;
+	transition: background-color 1s;
+}
+nav li:last-of-type:hover {
+	background-color: var(--svg);
+}
+nav li:last-of-type a:hover {
+	background-color: transparent;
+}
+nav li:last-of-type:hover span {
+	color: var(--body);
+}
+nav li:last-of-type:hover svg {
+	stroke: var(--body);
+}
+a[id="sign-in"] {
+	padding: 0;
+}
+nav span:last-of-type {
+	color: var(--text);
+	position: relative;
+	top: -5px;
+}
+.search-bar {
+	position: absolute;
+	top: 115px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	min-width: 414px;
+}
+.search-bar input {
+	border: 2px solid var(--svg);
+	width: 65%;
+}
+.search-bar input:focus {
+	outline-color: var(--text) !important;
+}
+.search-bar a {
+	background-color: var(--svg);
+}
+.search-bar svg {
+	padding: 2px 7px 0;
+}
+#social h3 {
+	display: none;
+}
+#social div {
+	background-color: var(--body);
+	filter: brightness(95%);
+	width: 100%;
+	height: 15px;
+}
+#social ul {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+	padding-top: 30px;
+}
+#social a {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	text-decoration: none;
+	color: var(--svg);
+}
+#social span {
+	padding: 0 2px;
+	transition: background-color 0.5s, color 0.5s;
+}
+#social a:hover span {
+	background-color: var(--svg);
+	color: var(--body);
+}
+#social svg {
+	margin-bottom: -2px;
+}
+footer {
+	position: relative;
+}
+footer section:last-of-type {
+	display: flex;
+	flex-direction: column-reverse;
+	align-items: center;
+	text-align: center;
+}
+footer img {
+	width: 50%;
+	padding: 20px 0;
+}
+small {
+	line-height: 1em;
+	padding-bottom: 3px;
+}
+/* ------------ MEDIA QUERY (MEDIUM) ------------ */
+@media screen and (min-width: 768px) {
+	body {
+		min-width: 768px;
+		margin-bottom: 0;
+	}
+	header {
+		position: relative;
+		z-index: 2;
+		padding-top: 225px;
+	}
+	h1 {
+		text-align: left;
+		padding-left: 15px;
+	}
+	menu {
+		background-color: rgba(242, 242, 242, 0.75);
+	}
+	menu li:last-of-type span {
+		overflow: hidden;
+		width: 50px;
+		height: 24px;
+		margin-top: -5px;
+	}
+	#about {
+		position: relative;
+		z-index: 1;
+		margin-top: -80px;
+	}
+	#recipe {
+		display: grid;
+		grid-template-areas: 'details details details details' 'ingredients directions directions directions' 'ingredients directions directions directions';
+	}
+	#details {
+		grid-area: details;
+	}
+	#ingredients {
+		grid-area: ingredients;
+	}
+	#directions {
+		grid-area: directions;
+	}
+	#details dl {
+		margin: 0 auto;
+		padding-right: 0;
+		justify-content: center;
+	}
+	nav {
+		min-width: 768px;
+	}
+	nav input:not(:checked) ~ ul {
+		max-height: 120px;
+	}
+	nav ul {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-evenly;
+	}
+	nav li {
+		padding-top: 5px;
+	}
+	nav li img {
+		display: block;
+		width: 60px;
+		margin: 0 auto;
+	}
+	nav label {
+		visibility: hidden;
+	}
+	nav a[href="#home"] {
+		left: 0;
+		width: 80px;
+	}
+	nav a[href="#home"] svg {
+		margin: 0 auto;
+		padding-top: 20px;
+	}
+	.search-bar {
+		top: 20px;
+		right: 15%;
+		z-index: 5;
+		position: fixed;
+	}
+	.grid-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+	}
+	#social div {
+		display: none;
+	}
+	footer {
+		display: grid;
+		grid-template-areas: 'good-eats social';
+		grid-template-columns: 1fr 1.5fr;
+		padding: 10px 0 20px;
+	}
+	#social {
+		grid-area: social;
+		
+	}
+	#good-eats {
+		grid-area: good-eats;
+	}
+}
+
+/* ------------ MEDIA QUERY (LARGE) ------------ */
+@media screen and (min-width: 1280px) {
+	body {
+		min-width: 1280px;
+	}
+	h1 {
+		text-align: center;
+		position: relative;
+	}
+	menu {
+		display: flex;
+		flex-direction: column;
+		background-color: var(--body);
+		border: 2px solid var(--svg);
+		width: 120px;
+		box-sizing: border-box;
+		position: absolute;
+		height: 757px;
+		padding-bottom: 30%;
+	}
+	main {
+		padding-top: 80px;
+	}
+	#about {
+		display: grid;
+		grid-template-areas: 'img p' 'img p' 'img p' 'img p';
+		width: 1160px;
+		left: 120px;
+	}
+	#about img {
+		grid-area: img;
+	}
+	#details {
+		width: 100%;
+		background-color: var(--text);
+		color: var(--content);
+		margin-bottom: 5px;
+	}
+	#details dl {
+		display: flex;
+		flex-direction: column;
+		flex-wrap: wrap;
+		align-items:center;
+		width: 100%;
+		height: 55px;
+	}
+	#details dt {
+		padding-right: 0;
+		padding-top: 5px;
+	}
+	#ingredients {
+		width: 275px;
+	}
+	.grid-container {
+		display: flex;
+		flex-direction: row;
+	}
+	.side-dish {
+		display: grid;
+		grid-template-areas: 'image image image' 'a a a' 'b b b' 'c c c';
+		padding: 10px;
+	}
+	.side-dish img {
+		width: 100%;
+		padding-bottom: 10px;
+	}
+	nav {
+		min-width: 1280px;
+		display: flex;
+		flex-direction: row;
+		padding: 0;
+	}
+	nav ul {
+		margin: 0 auto;
+		width: 70%;
+	}
+	nav li a {
+		padding: 15px 0;
+	}
+	nav li img {
+		width: 50px;
+	}
+	nav a[href="#home"] {
+		height: 100%;
+		padding: 0 10px;
+	}
+	nav li:last-of-type {
+		padding: 20px;
+	}
+	.search-bar {
+		position: absolute;
+		top: 150px;
+		right: 35%;
+		width: 30%;
+		z-index: 1;
+	}
+	footer {
+		padding-top: 20px;
+		padding-bottom: 0;
+		grid-template-columns: 1fr 1fr;
+	}
+	#good-eats {
+		display: flex;
+		flex-direction: row-reverse;
+		justify-content: left;
+		align-items: start;
+		padding-left: 10px;
+	}
+	#good-eats small {
+		margin-top: 40px;
+		margin-left: -15px;
+	}
+	#good-eats img {
+		width: 40%;
+	}
+}
